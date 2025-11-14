@@ -16,7 +16,6 @@ public class VivaQ5 {
         for(int i = 0 ; i < T ; i++){
             word[i] = sc.next(); 
         }
-        
 
         for(int i = 0; i < T ; i++){ // Start the main loop. This outer loop processes one word at a time.
             boolean isChaos = false; // Create a boolean "flag" for each word.
