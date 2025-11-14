@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class VivaQ5 {
+public class vivaQ5 {
 
     public static boolean isVowel(char c){
         char lower = Character.toLowerCase(c); // Convert the character to lowercase first.
