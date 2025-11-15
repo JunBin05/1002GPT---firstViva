@@ -57,7 +57,7 @@ public class vivaQ4 {
 
         System.out.print("Enter a single positive integer representing the length (k) of the substrings: ");
         int k = input.nextInt();
-        while (k>word.length()){
+        while ((k>word.length()) || (k<=0)){
             System.out.print("k cannot be more than the size of string, please enter again: ");
             k = input.nextInt();
         }
