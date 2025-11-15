@@ -47,9 +47,9 @@ public class vivaQ5 {
  
    
             if(isChaos){ // This is the same as (isChaos == true)
-                System.out.println("chaos");   // If the flag was set to true, a rule was broken.
+                System.out.println("Chaos");   // If the flag was set to true, a rule was broken.
             } else {
-                System.out.println("harmony"); // If the flag is still false, no rules were broken.
+                System.out.println("Harmony"); // If the flag is still false, no rules were broken.
             }
         }
         
