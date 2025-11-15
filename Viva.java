@@ -37,8 +37,9 @@ public class viva {
                 }
         }
         else{
-            System.out.print("Queries must not exceed 500");
+            System.out.print("Queries must not exceed 500 and lesser than 1");
         } 
     }
 }
+
 
