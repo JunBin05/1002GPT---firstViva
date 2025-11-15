@@ -1,8 +1,8 @@
 
-package viva;
+package Viva_Q1;
 
 import java.util.Scanner;
-public class Viva {
+public class viva {
 
 
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Viva {
                 for(int i=0;i<q;i++){
                     for(int j=0;j<3;j++){
                         query[i][j]=sc.nextInt();
-                        
+                    }
                         if(query[i][0]<0 || query[i][0]>50){
                             System.out.println("Invalid input. a must be in the range of 0-50");
                             return;
@@ -23,13 +23,11 @@ public class Viva {
                             System.out.println("Invalid input. b must be in the range of 0-50");
                             return;
                         }
-                        if(query[i][0]<1 || query[i][0]>15){
+                        if(query[i][2]<1 || query[i][2]>15){
                             System.out.println("Invalid input. n must be in the range of 1-15");
                             return;
-                        }
-                        }
-                    }
-                
+                        }   
+                }       
                 for(int i=0;i<q;i++){
                     for(int j=0;j<query[i][2];j++){
                         int charm=query[i][0]+query[i][1]* (int) Math.pow(2,j);
@@ -40,8 +38,6 @@ public class Viva {
         }
         else{
             System.out.print("Queries must not exceed 500");
-        }
-        
+        } 
     }
-    
 }
