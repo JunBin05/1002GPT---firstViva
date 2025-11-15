@@ -1,0 +1,72 @@
+package question6;
+import java.util.Scanner;
+
+public class vivaQ6 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        int T=sc.nextInt();
+        String[] str=new String[T];
+
+        for(int i=0;i<T;i++){
+            str[i]=sc.next();
+        }
+
+        for(int i=0;i<T;i++){
+            boolean done=false;
+            while(done==false){
+
+                int length=0;
+                boolean good=true;
+
+                if(str[i].isEmpty() || Character.isDigit(str[i].charAt(0))){
+                    good=false;
+                }
+
+                if(good){
+                    for(int j=0;j<str[i].length();j++){
+
+                        if(Character.isLetter(str[i].charAt(j))){
+                            length++;
+                        }
+                        else if(Character.isDigit(str[i].charAt(j))){
+
+                            if(str[i].charAt(j)=='0' || str[i].charAt(j)=='1'){
+                                good=false;
+                                break;
+                            }
+
+                            if(j==0 || Character.isDigit(str[i].charAt(j-1))){
+                                good=false;
+                                break;
+                            }
+
+                            length+=(str[i].charAt(j)-'0')-1;
+                        }
+                        else{
+                            good=false;
+                            break;
+                        }
+                    }
+                }
+
+                if(good&&length>200){
+                    str[i]=sc.next();
+                    continue;
+                }
+                if (str[i].length()>50){
+                    str[i]=sc.next();
+                    continue;
+                }
+
+                if(good && length<=200){
+                    System.out.println(length);
+                } 
+                else if(!good){
+                    System.out.println("Invalid Log");
+                }
+                done=true;
+            }
+        }
+    }
+}
