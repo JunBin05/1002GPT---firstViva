@@ -50,7 +50,7 @@ public class vivaQ4 {
         Scanner input = new Scanner (System.in);
         System.out.print("Enter a single word (string of only alphabets) with no spaces and length not more than 50: ");
         String word = input.nextLine().toLowerCase();
-        while ((word.length()>=50) || !(word.matches("[a-zA-Z]+"))){
+        while ((word.length()>=50) || !(word.matches("[a-zA-Z]+"))){  //is not pure alphabets
             System.out.print("Invalid input! Enter a single word (string of only alphabets) with no spaces and length not more than 50: ");
             word = input.nextLine().toLowerCase();
         }
