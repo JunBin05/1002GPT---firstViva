@@ -13,9 +13,10 @@ public class vivaQ5 {
 
         System.out.print("Enter T lines (1-100) : ");
         int T = sc.nextInt();
-        if(T < 1 || T > 100){
-            System.out.println("Invalid input! T should be between 1 and 100.");
-            return; // Exit the program if T is invalid
+        while(T < 1 || T > 100){
+            System.out.println("Invalid input! T should be between 1 and 100. Please enter again.");
+            System.out.print("Enter T lines (1-100) : ");
+            T = sc.nextInt();
         }
         System.out.println();
         System.out.println("Rule 1 -- Enter each word only containing lowercase alphabets.");
@@ -28,7 +29,6 @@ public class vivaQ5 {
             String currentWord = sc.next(); 
             while(currentWord.length() < 1 || currentWord.length() > 50 || !currentWord.matches("[a-z]+")){
                 System.out.println("Invalid input! Please enter a word with only lowercase alphabets and length between 1 and 50.");
-                System.out.println();
                 System.out.print("word " + (i+1) + ": ");
                 currentWord = sc.next();
             }
