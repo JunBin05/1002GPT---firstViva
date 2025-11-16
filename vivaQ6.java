@@ -3,54 +3,79 @@ import java.util.Scanner;
 public class vivaQ6 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.print("Enter number of logs, T (1-100): ");
+
         int T=sc.nextInt();
-        while ((T<1) || (T>100)){
-            System.out.print("T can only be 1 to 100. Please enter again: ");
-            T = sc.nextInt();
-        }
+        String[] str=new String[T];
 
         for(int i=0;i<T;i++){
-            System.out.print("Enter the compressed string (1-50 characters): ");
-            String compressed = sc.next().toLowerCase();
-            int length=0;
-            while (compressed.length()<1 || compressed.length()>100){
-                System.out.print("The compressed string can only be 1-50 characters. Please enter again: ");
-                compressed = sc.next().toLowerCase();
-            }
-            
-            boolean inputValid=true;
-            if(Character.isDigit(compressed.charAt(0))){
-                inputValid=false;
-            }
+            boolean done=false;
+            while(done==false){
 
-            if(inputValid){
-                for(int j=0;j<compressed.length();j++){
-                    char currentLetter = compressed.charAt(j);
-                    if(Character.isLetter(currentLetter)){
-                        length++;
-                    }else if(Character.isDigit(currentLetter)){
-                        if(currentLetter=='0' || currentLetter=='1'){
-                            inputValid=false;
-                            break;
-                        }else if ((j+1)==compressed.length() || !(Character.isDigit(compressed.charAt(j+1)))){
-                            int digitValue = currentLetter-'0';
-                            for (int count=0; count<digitValue-1; count++){
-                                length++;
-                            }
-                        }else{
-                            inputValid=false;
+                boolean low=false;
+                while(!low){
+                    str[i]=sc.next();
+                    low=true;
+
+                    if (str[i].length()>50) {  
+                        low=false;
+                        continue;
+                    }
+
+                    for (int j=0;j<str[i].length();j++){
+                        char c = str[i].charAt(j);
+                        if (!((c>='a' && c<='z') || (c>='0' && c<='9'))) {
+                            low=false;
                             break;
                         }
                     }
                 }
-            }
-            if(inputValid && length<=200){
-                System.out.println(length);
-            }else if(!inputValid){
-                System.out.println("Invalid Log");
-            }else if (length>200){
-                System.out.println("The decompressed string exceed 200 characters in length.");
+
+                int length=0;
+                boolean good=true;
+
+                if(str[i].isEmpty()||Character.isDigit(str[i].charAt(0))){
+                    good=false;
+                }
+
+                if(good==true){
+                    for(int j=0;j<str[i].length();j++){
+
+                        if(Character.isLetter(str[i].charAt(j))){
+                            length=length+1;
+                        }
+                        else if(Character.isDigit(str[i].charAt(j))){
+
+                            if(str[i].charAt(j)=='0'||str[i].charAt(j)=='1'){
+                                good=false;
+                                break;
+                            }
+
+                            if(j==0||Character.isDigit(str[i].charAt(j-1))){
+                                good=false;
+                                break;
+                            }
+
+                            length+=(str[i].charAt(j)-'0')-1;
+                        }
+                        else{
+                            good=false;
+                            break;
+                        }
+                    }
+                }
+
+                if(good&&length>200){
+                    continue;
+                }
+
+                if(good && length<=200){
+                    System.out.print(length+ " ");
+                    done=true;
+                } 
+                else if(!good){
+                    System.out.print("Invalid Log ");
+                    done=true;
+                }
             }
         }
     }
