@@ -29,21 +29,10 @@ public class vivaQ2 {
             while (true) { // Loop until valid input for this test case
                 System.out.print("Test case " + (t + 1) + ": ");
 
-                // Read entire line for this test case
-                String testInput = input.nextLine();
-
-                // Split input by spaces (one or more spaces allowed)
-                String[] parts = testInput.split(" ");
-
-                // Check exactly 2 values are entered (N and L)
-                if (parts.length != 2) {
-                    System.out.println("Invalid input! Please enter exactly two integers (N and L).");
-                    continue; // Repeat this test case
-                }
-
-                // Convert strings to numbers
-                int N = Integer.parseInt(parts[0]);
-                int L = Integer.parseInt(parts[1]);
+                // Read number to be analysed,N and Lucky Digit, L
+                int N = input.nextInt();
+                int L = input.nextInt();
+                
 
                 // Validate input ranges
                 boolean invalidN = (N < 0 || N > 2000000000);
