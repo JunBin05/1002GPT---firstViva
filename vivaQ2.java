@@ -1,6 +1,5 @@
-package viva1_q2;
 import java.util.Scanner;
-public class Viva1_Q2{
+public class vivaQ2{
     public static void main(String[] args) {
         // Create a Scanner object to read user input
         Scanner input;

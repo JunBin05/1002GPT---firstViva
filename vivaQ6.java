@@ -1,4 +1,3 @@
-package question6;
 import java.util.Scanner;
 
 public class vivaQ6 {
