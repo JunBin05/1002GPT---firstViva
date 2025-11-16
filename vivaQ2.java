@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class VivaQ2 {
+public class vivaQ2 {
     public static void main(String[] args) {
         // Create a Scanner object to read user input
         Scanner input = new Scanner(System.in);
