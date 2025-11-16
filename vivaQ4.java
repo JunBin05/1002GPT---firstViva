@@ -50,7 +50,7 @@ public class vivaQ4 {
         Scanner input = new Scanner (System.in);
         System.out.print("Enter a single word (string of only alphabets) with no spaces and length not more than 50: ");
         String word = input.nextLine().toLowerCase();
-        while ((word.length()>=50) || !(word.matches("[a-zA-Z]+"))){  //is not pure alphabets
+        while ((word.length()>=50) || !(word.matches("[a-zA-Z]+"))){
             System.out.print("Invalid input! Enter a single word (string of only alphabets) with no spaces and length not more than 50: ");
             word = input.nextLine().toLowerCase();
         }
@@ -58,7 +58,11 @@ public class vivaQ4 {
         System.out.print("Enter a single positive integer representing the length (k) of the substrings: ");
         int k = input.nextInt();
         while ((k>word.length()) || (k<=0)){
-            System.out.print("k cannot be more than the size of string, please enter again: ");
+            if (k>word.length()){
+                System.out.print("k cannot be more than the size of string, please enter again: ");
+            }else if (k<=0){
+                System.out.print("k cannot be less than or equal to 0, please enter again: ");
+            }
             k = input.nextInt();
         }
 
