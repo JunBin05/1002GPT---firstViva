@@ -6,7 +6,7 @@ public class vivaQ1 {
         Scanner sc=new Scanner(System.in);
         int q=sc.nextInt();
 
-        if(q>=1 || q<=500){
+        if(q>=1 && q<=500){
                 int [][]query=new int [q][3];
                 for(int i=0;i<q;i++){
                     for(int j=0;j<3;j++){
