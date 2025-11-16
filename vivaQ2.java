@@ -7,7 +7,7 @@ public class vivaQ2 {
 
         int T; // T = number of queries
 
-        while (true) { // Loop until a valid number of queries is entered
+        while (true) { // Loop until a valid number of queries is entered.
             System.out.print("Enter the number of queries (1-200): "); // Ask the user for the number of queries
 
             // Read the entire line from user input
