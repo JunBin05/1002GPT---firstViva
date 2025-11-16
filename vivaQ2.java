@@ -1,33 +1,25 @@
 import java.util.Scanner;
-
-public class vivaQ2 {
+public class VivaQ2 {
     public static void main(String[] args) {
         // Create a Scanner object to read user input
         Scanner input = new Scanner(System.in);
 
         int T; // T = number of queries
 
-        while (true) { // Loop until a valid number of queries is entered.
+        while (true) { // Loop until a valid number of queries is entered
             System.out.print("Enter the number of queries (1-200): "); // Ask the user for the number of queries
-
-            // Read the entire line from user input
-            String line = input.nextLine();
-
-            // Validate that the input contains only digits (no spaces, no letters, no
-            // symbols)
-            // The regex "\\d+" means: one or more digits from 0–9
-            if (line.matches("\\d+")) {
-                T = Integer.parseInt(line); // Convert the valid numeric string to an integer
-
-                // Validate range of number of queries,T (must be in the range 1 to 200)
-                if (T >= 1 && T <= 200) {
-                    break; // Immediately exits the while(true) loop
-                }
+            T = input.nextInt();
+            input.nextLine(); // Consume new line
+            // Validate range of number of queries,T (must be in the range 1 to 200)
+            if (T >= 1 && T <= 200) {
+                break; // Immediately exits the while(true) loop
             }
-
+            
             // If input invalid, print message and loop again
             System.out.println("Invalid input! Please enter one integer in the range 1 to 200.");
         }
+        
+        System.out.println("Please enter the value of N in range 0 to 2000000000 and value of L in range 0 to 9 ");
 
         // Use arrays to store inputs, so we can process outputs later
         int[] Ns = new int[T]; // Stores number to be analysed, N for each test case
@@ -41,9 +33,7 @@ public class vivaQ2 {
                 String testInput = input.nextLine();
 
                 // Split input by spaces (one or more spaces allowed)
-                // trim() removes extra spaces at the beginning and end.
-                // split("\\s+") splits the string by one or more whitespace characters.
-                String[] parts = testInput.trim().split("\\s+");
+                String[] parts = testInput.split(" ");
 
                 // Check exactly 2 values are entered (N and L)
                 if (parts.length != 2) {
@@ -63,12 +53,12 @@ public class vivaQ2 {
                 if (invalidN && invalidL) {
                     System.out.println("Invalid N value and Lucky Digit");
                     continue; // skip to the next test case
-                }
+                } 
                 // Print error if only N is invalid
                 else if (invalidN) {
                     System.out.println("Invalid N value");
                     continue; // skip to the next test case
-                }
+                } 
                 // Print error if only L is invalid
                 else if (invalidL) {
                     System.out.println("Invalid Lucky Digit");
@@ -84,21 +74,21 @@ public class vivaQ2 {
 
         for (int t = 0; t < T; t++) {
 
-            int N = Ns[t]; // Get the number N for this test case
-            int L = Ls[t]; // Get the Lucky Digit L for this test case
+            int N = Ns[t]; //Get the number to be analysed, N for this test case
+            int L = Ls[t];  //Get the Lucky Digit, L for this test case
 
             // Initialise counters for each category
             int lucky = 0; // Count of digits equal to Lucky Digit
-            int zero = 0; // Count of digits equal to 0 (only if L != 0)
-            int even = 0; // Count of other even digits (2,4,6,8)
-            int odd = 0; // Count of remaining odd digits (1,3,5,7,9)
+            int zero = 0;  // Count of digits equal to 0 (only if L != 0)
+            int even = 0;  // Count of other even digits (2,4,6,8)
+            int odd = 0;   // Count of remaining odd digits (1,3,5,7,9)
 
             // Special case: if N = 0
             if (N == 0) {
                 if (L == 0)
                     lucky++; // If Lucky Digit is 0, count it as lucky
                 else
-                    zero++; // Otherwise count as zero
+                    zero++;  // Otherwise count as zero
             } else {
                 // Process each digit of N from right to left
                 while (N > 0) {
@@ -108,11 +98,11 @@ public class vivaQ2 {
                     if (digit == L) {
                         lucky++; // Priority 1: Lucky digit
                     } else if (digit == 0 && L != 0) {
-                        zero++; // Priority 2: Zero (if L != 0)
+                        zero++;  // Priority 2: Zero (if L != 0)
                     } else if (digit % 2 == 0) {
-                        even++; // Priority 3: Even digits
+                        even++;  // Priority 3: Even digits
                     } else {
-                        odd++; // Priority 4: Odd digits
+                        odd++;   // Priority 4: Odd digits
                     }
                 }
             }
@@ -131,6 +121,6 @@ public class vivaQ2 {
             // Print result for this test case
             System.out.println(result);
         }
-
     }
 }
+
