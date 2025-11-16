@@ -4,7 +4,6 @@ public class VivaQ2 {
         //Create a Scanner object to read user input
         Scanner input = new Scanner(System.in);
 
-        // Step 1: Read number of queries, T
         int T; // T = number of queries
 
         while (true) { // Loop until a valid number of queries is entered
@@ -28,7 +27,7 @@ public class VivaQ2 {
             System.out.println("Invalid input! Please enter one integer in the range 1 to 200.");
         }
 
-        // Step 2: Read all test cases
+        
         // Use arrays to store inputs, so we can process outputs later
         int[] Ns = new int[T]; // Stores number to be analysed, N for each test case
         int[] Ls = new int[T];   // Stores Lucky Digit, L for each test case
@@ -82,7 +81,7 @@ public class VivaQ2 {
             }
         }
 
-        // Step 3: Process all test cases and print output
+        
         for (int t = 0; t < T; t++) {
 
             int N = Ns[t]; // Get the number N for this test case
