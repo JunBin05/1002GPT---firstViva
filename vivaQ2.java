@@ -19,7 +19,7 @@ public class vivaQ2{
         for (int t = 0; t < T; t++) {
             System.out.print("Test case "+ (t+1) + ": ");
              // Read the number to analyse, N and Lucky Digit, L for the current test case
-            long N = input.nextLong();
+            int N = input.nextInt();
             int L = input.nextInt();
             
             // Validate input ranges
