@@ -9,7 +9,7 @@ public class vivaQ2 {
         while (true) { // Loop until a valid number of queries is entered
             System.out.print("Enter the number of queries (1-200): "); // Ask the user for the number of queries
             T = input.nextInt();
-            input.nextLine(); // Consume new line
+            
             // Validate range of number of queries,T (must be in the range 1 to 200)
             if (T >= 1 && T <= 200) {
                 break; // Immediately exits the while(true) loop
