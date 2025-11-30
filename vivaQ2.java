@@ -42,17 +42,17 @@ public class vivaQ2 {
                 // Print combined error messages if both N and L are invalid
                 if (invalidN && invalidL) {
                     System.out.println("Invalid N value and Lucky Digit");
-                    continue; // skip to the next test case
+                    continue; // skip to the next iteration
                 } 
                 // Print error if only N is invalid
                 else if (invalidN) {
                     System.out.println("Invalid N value");
-                    continue; // skip to the next test case
+                    continue; // skip to the next iteration
                 } 
                 // Print error if only L is invalid
                 else if (invalidL) {
                     System.out.println("Invalid Lucky Digit");
-                    continue; // skip to the next test case
+                    continue; // skip to the next iteration
                 }
 
                 // Store valid inputs in arrays
@@ -84,7 +84,7 @@ public class vivaQ2 {
                     char digit = N.charAt(i);
                     if (digit == L.charAt(0)) { //change L from String to char
                         lucky++; // Priority 1: Lucky digit
-                    } else if (digit == '0' && L.charAt(0) != 0) {
+                    } else if (digit == '0' && L.charAt(0) != '0') {
                         zero++;  // Priority 2: Zero (if L != 0)
                     } 
                     else if ((digit-'0') % 2 == 0) {
